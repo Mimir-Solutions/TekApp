@@ -7,7 +7,6 @@ import ETHLogo from './../Assets/ethereum.png'
 import DAILogo from './../Assets/dai_logo.png'
 import NFYLogo from './../Assets/nfy_logo.png'
 import { AssetInLoan } from './AssetInLoan'
-import { WithdrawAssets } from './WithdrawAssets'
 
 interface UserStatsBlockIntroProps {
 

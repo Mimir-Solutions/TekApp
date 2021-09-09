@@ -37,7 +37,7 @@ export const LoanETH: FC<LoanETHPropsInterface> = ({ amount }) => {
         setHaveActiveLendTx(true);
 
         sendService(
-            {value: utils.parseUnits(amount as string, 18)}
+            { value: utils.parseEther(amount as string), gasLimit: 95000 }
         );
     }
 

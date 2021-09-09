@@ -4,7 +4,7 @@ import { useCoingeckoPrice } from '@usedapp/coingecko'
 import { ConfigApp } from './../config'
 import { useWallet } from './WalletProvider'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faInfoCircle, faLock, faUser, faDollarSign } from '@fortawesome/free-solid-svg-icons'
+import { faInfoCircle, faLock } from '@fortawesome/free-solid-svg-icons'
 import { useContractCall } from '@usedapp/core'
 import { utils } from 'ethers'
 
@@ -49,6 +49,7 @@ export const StatsBlockIntro: FunctionComponent<{}> = (props) => {
 
 
 
+
     const [USDCLockedContract] = useContractCall({
         abi: serviceInterface,
         address: ConfigApp.ServiceContractAddress,
@@ -78,14 +79,14 @@ export const StatsBlockIntro: FunctionComponent<{}> = (props) => {
 
     useEffect(() => {
         if (USDTLockedContract) {
-            setLockedUSDT(parseFloat(utils.formatEther((USDTLockedContract))));
+            setLockedUSDT(parseFloat(utils.formatUnits((USDTLockedContract), 6)));
         }
     }, [USDTLockedContract])
 
 
     useEffect(() => {
         if (USDCLockedContract) {
-            setLockedUSDC(parseFloat(utils.formatEther((USDCLockedContract))));
+            setLockedUSDC(parseFloat(utils.formatUnits((USDCLockedContract), 6)));
         }
     }, [USDCLockedContract])
 
