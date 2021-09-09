@@ -5,6 +5,7 @@ import USDC_logo from './../Assets/usdc_logo.png'
 import USDT_logo from './../Assets/usdt_logo.png'
 import ETHLogo from './../Assets/ethereum.png'
 import DAI_logo from './../Assets/dai_logo.png'
+import NFY_logo from './../Assets/nfy_logo.png'
 import { TokenBalance } from './TokenBalance'
 import { shortenAddress } from '@usedapp/core'
 
@@ -25,7 +26,12 @@ export const ConnectedAccountNavs: FunctionComponent<{}> = (props) => {
                     className="d-inline-block align-top"
                     alt="*" />$ETH {parseFloat(ETH as string)?.toFixed(4)}
             </Nav.Link>
-            
+            <Nav.Link >
+                <img src={NFY_logo} width="25"
+                    height="25"
+                    className="d-inline-block align-top"
+                    alt="*" /> <TokenBalance tokenKey="NFY" />
+            </Nav.Link>
             <Nav.Link>
                 <img src={USDC_logo} width="25"
                     height="25"

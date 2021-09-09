@@ -96,7 +96,8 @@ export const LoanToken: FC<LoanTokenPropsInterface> = ({ amount, tokenName }) =>
     return (
         <div className="d-grid gap-2">
             <Button size="lg" variant="primary" disabled={haveActiveLendTx} onClick={() => lendLiquidity()}>
-                Loan Liquidity
+                {haveActiveLendTx && "Processing..."}
+                {!haveActiveLendTx && "Lend liqiudity"}
             </Button>
         </div>
     )

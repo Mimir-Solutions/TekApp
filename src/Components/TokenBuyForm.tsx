@@ -1,18 +1,28 @@
-import React, { FunctionComponent } from 'react'
+import React, { FC, useEffect } from 'react'
 import { Row, Col, Form, FloatingLabel, Button } from 'react-bootstrap'
 import { useWallet } from './WalletProvider'
 import { LoanETH } from './LoanETH'
 import { LoanToken } from './LoanToken'
 
-export const TokenBuyForm: FunctionComponent<{}> = (props) => {
-    const { ETH, USDT, USDC, DAI, account, activateBrowserWallet } = useWallet();
+export const TokenBuyForm: FC<{}> = (props) => {
+    const { ETH, USDT, USDC, DAI, NFY, account, activateBrowserWallet } = useWallet();
     const [selectedCoin, setSelectedCoin] = React.useState('ETH');
     const [currentBalanceOfSelectedCoin, setCurrentBalanceOfSelectedCoin] = React.useState(ETH)
     const [amountForBuy, setAmountForBuy] = React.useState('0');
 
+    useEffect( () => {
+        if (selectedCoin === 'ETH') {
+            setCurrentBalanceOfSelectedCoin(ETH);
+        }
+    }, [ETH, selectedCoin])
+
     const getBalanceForSelectedCurrency = (currency: string) => {
         if (currency === 'ETH') {
             return ETH;
+        }
+
+        if (currency === 'NFY') {
+            return NFY;
         }
 
         if (currency === 'USDT') {
@@ -37,9 +47,9 @@ export const TokenBuyForm: FunctionComponent<{}> = (props) => {
 
     const handleAmountChange = (amount: string) => {
         if (parseFloat(currentBalanceOfSelectedCoin as string) < parseFloat(amount)) {
-            setAmountForBuy(currentBalanceOfSelectedCoin as string)
+            setAmountForBuy(currentBalanceOfSelectedCoin as string);
         } else {
-            setAmountForBuy(amount);
+            setAmountForBuy(amount.replace(/[^0-9.]/g, '').replace('.', 'x').replace(/\./g,'').replace('x','.'));
         }
     }
 
