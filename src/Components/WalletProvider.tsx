@@ -148,7 +148,7 @@ export const WalletProvider: FunctionComponent<WalletProviderProps> = (props) =>
             serviceInterface
 
         }}>
-            {(!allowedNetworkIds.includes(chainId as number)) &&
+            {(account && !allowedNetworkIds.includes(chainId as number)) &&
                 <SwitchToMainnetAlert />
             }
 
