@@ -6,7 +6,7 @@ import { useWallet } from './WalletProvider'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInfoCircle, faLock, faUser, faDollarSign } from '@fortawesome/free-solid-svg-icons'
 import { useContractCall } from '@usedapp/core'
-import { utils } from 'ethers'
+import {  utils } from 'ethers'
 
 export const StatsBlockIntro: FunctionComponent<{}> = (props) => {
 
