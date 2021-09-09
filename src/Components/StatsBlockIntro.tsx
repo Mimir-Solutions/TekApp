@@ -28,7 +28,7 @@ export const StatsBlockIntro: FunctionComponent<{}> = (props) => {
         abi: serviceInterface,
         address: ConfigApp.ServiceContractAddress,
         method: 'getTotalLoaned',
-        args: [ConfigApp.tokens_addresses.WETH]
+        args: [ConfigApp.tokens_addresses.ETH]
     }) ?? [];
 
     const [NFYLockedContract] = useContractCall({
@@ -136,7 +136,7 @@ export const StatsBlockIntro: FunctionComponent<{}> = (props) => {
                             </tr>
                             <tr>
                                 <td><FontAwesomeIcon icon={faLock} /> TVL~ $</td>
-                                <td>{TVL.toLocaleString()} $</td>
+                                <td>{TVL.toLocaleString() ?? 0} $</td>
                             </tr>
                         </tbody>
                     </Table>

@@ -74,7 +74,7 @@ export const useWallet = () => {
     return context;
 }
 
-const allowedNetworkIds = [1, 5]; // remove 5 when prod
+const allowedNetworkIds = [1]; // add 5 when prod
 
 
 

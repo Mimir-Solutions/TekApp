@@ -64,14 +64,14 @@ export const UserStatsBlockIntro: FC<UserStatsBlockIntroProps> = (props) => {
                         </Card>
                     </Col>
                 </Row>
-                <AssetInLoan assetLogo={ETHLogo} assetName="$WETH" />
+                <AssetInLoan assetLogo={ETHLogo} assetName="$ETH" />
                 <AssetInLoan assetLogo={NFYLogo} assetName="$NFY" />
                 <AssetInLoan assetLogo={USDTLogo} assetName="$USDT" />
                 <AssetInLoan assetLogo={USDCLogo} assetName="$USDC" />
                 <AssetInLoan assetLogo={DAILogo} assetName="$DAI" />
                 
                 <hr />
-                <WithdrawAssets />
+
             </Card.Body>
         </Card>
     )

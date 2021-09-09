@@ -26,7 +26,6 @@ export const AssetInLoan: FC<AssetInLoanProps> = ({ assetName, assetLogo }) => {
 
     useEffect( () => {
         if (TokenBalance) {
-            console.log(TokenBalance);
             setAssetQty(parseFloat(utils.formatEther(TokenBalance)));
         }
     }, [TokenBalance]);
