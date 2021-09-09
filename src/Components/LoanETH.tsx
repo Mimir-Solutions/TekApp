@@ -1,7 +1,6 @@
-import React, { FC, useState, useEffect } from 'react'
+import React, { FC, useEffect } from 'react'
 import { Button } from 'react-bootstrap'
 import { ConfigApp } from './../config'
-import { useWallet } from './WalletProvider'
 import { useContractFunction, useEthers } from '@usedapp/core'
 import { Contract } from '@ethersproject/contracts'
 import { utils } from 'ethers'

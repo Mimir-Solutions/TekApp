@@ -5,6 +5,7 @@ interface KvObjectStorage {
 }
 
 const tokens_addresses: KvObjectStorage = {
+    WETH: "0x7f68cff269f57fa018027811089e2fba31f84a58",
     NFY: "0xed02b6915588108576d251b6627e396923282eb1",
     BPP: "0x52d904eff2605463c2f0b338d34abc9b7c3e3b08",
     DEFO: "0xe481f2311c774564d517d015e678c2736a25ddd3",

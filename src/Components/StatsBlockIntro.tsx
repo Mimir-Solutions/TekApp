@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect, useMemo } from 'react'
+import React, { FunctionComponent, useEffect } from 'react'
 import { Card, Table } from 'react-bootstrap'
 import { useCoingeckoPrice } from '@usedapp/coingecko'
 import { ConfigApp } from './../config'
@@ -6,7 +6,7 @@ import { useWallet } from './WalletProvider'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInfoCircle, faLock, faUser, faDollarSign } from '@fortawesome/free-solid-svg-icons'
 import { useContractCall } from '@usedapp/core'
-import {  utils } from 'ethers'
+import { utils } from 'ethers'
 
 export const StatsBlockIntro: FunctionComponent<{}> = (props) => {
 
@@ -28,7 +28,7 @@ export const StatsBlockIntro: FunctionComponent<{}> = (props) => {
         abi: serviceInterface,
         address: ConfigApp.ServiceContractAddress,
         method: 'getTotalLoaned',
-        args: ["0x0000000000000000000000000000000000000000"]
+        args: [ConfigApp.tokens_addresses.WETH]
     }) ?? [];
 
     const [NFYLockedContract] = useContractCall({
@@ -64,35 +64,35 @@ export const StatsBlockIntro: FunctionComponent<{}> = (props) => {
     }) ?? [];
 
 
-    useMemo(() => {
+    useEffect(() => {
         if (ETHLockedContract) {
             setLockedETH(parseFloat(utils.formatEther((ETHLockedContract))));
         }
     }, [ETHLockedContract])
 
-    useMemo(() => {
+    useEffect(() => {
         if (NFYLockedContract) {
             setLockedNFY(parseFloat(utils.formatEther((NFYLockedContract))));
         }
     }, [NFYLockedContract])
 
-    useMemo(() => {
+    useEffect(() => {
         if (USDTLockedContract) {
             setLockedUSDT(parseFloat(utils.formatEther((USDTLockedContract))));
         }
     }, [USDTLockedContract])
 
 
-    useMemo(() => {
+    useEffect(() => {
         if (USDCLockedContract) {
             setLockedUSDC(parseFloat(utils.formatEther((USDCLockedContract))));
         }
     }, [USDCLockedContract])
 
 
-    useMemo(() => {
+    useEffect(() => {
         if (DAILockedContract) {
-            setLockedETH(parseFloat(utils.formatEther((DAILockedContract))));
+            setLockedDAI(parseFloat(utils.formatEther((DAILockedContract))));
         }
     }, [DAILockedContract])
 
@@ -116,23 +116,23 @@ export const StatsBlockIntro: FunctionComponent<{}> = (props) => {
                         <tbody>
                             <tr>
                                 <td><FontAwesomeIcon icon={faInfoCircle} /> Total ETH raised</td>
-                                <td>{lockedETH}</td>
+                                <td>{lockedETH.toFixed(4)}</td>
                             </tr>
                             <tr>
                                 <td><FontAwesomeIcon icon={faInfoCircle} /> Total NFY raised</td>
-                                <td>{lockedNFY}</td>
+                                <td>{lockedNFY.toFixed(4)}</td>
                             </tr>
                             <tr>
                                 <td><FontAwesomeIcon icon={faInfoCircle} /> Total USDT raised</td>
-                                <td>{lockedUSDT}</td>
+                                <td>{lockedUSDT.toFixed(4)}</td>
                             </tr>
                             <tr>
                                 <td><FontAwesomeIcon icon={faInfoCircle} /> Total USDC raised</td>
-                                <td>{lockedUSDC}</td>
+                                <td>{lockedUSDC.toFixed(4)}</td>
                             </tr>
                             <tr>
                                 <td><FontAwesomeIcon icon={faInfoCircle} /> Total DAI raised</td>
-                                <td>{lockedDAI}</td>
+                                <td>{lockedDAI.toFixed(4)}</td>
                             </tr>
                             <tr>
                                 <td><FontAwesomeIcon icon={faLock} /> TVL~ $</td>
@@ -141,7 +141,7 @@ export const StatsBlockIntro: FunctionComponent<{}> = (props) => {
                         </tbody>
                     </Table>
 
-                    <Table className="mt-3" striped bordered hover variant="dark">
+                    {/* <Table className="mt-3" striped bordered hover variant="dark">
                         <tbody>
                             <tr>
                                 <td><FontAwesomeIcon icon={faUser} /> ~ number of active users</td>
@@ -152,7 +152,7 @@ export const StatsBlockIntro: FunctionComponent<{}> = (props) => {
                                 <td>228.57 $</td>
                             </tr>
                         </tbody>
-                    </Table>
+                    </Table> */}
                 </Card.Body>
             </Card>
         </>

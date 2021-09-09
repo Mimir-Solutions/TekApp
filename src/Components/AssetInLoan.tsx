@@ -1,5 +1,10 @@
-import React, { FC } from "react"
+import React, { FC, useEffect } from "react"
 import { Row, Col, Card } from 'react-bootstrap'
+import { ConfigApp } from './../config'
+import { useWallet } from './WalletProvider'
+import { useContractCall } from '@usedapp/core'
+import { utils } from 'ethers'
+import { ServiceAbi } from './../ABI/ServiceAbi'
 
 interface AssetInLoanProps {
     assetName: string,
@@ -7,6 +12,25 @@ interface AssetInLoanProps {
 }
 
 export const AssetInLoan: FC<AssetInLoanProps> = ({ assetName, assetLogo }) => {
+    const serviceInterface = new utils.Interface(ServiceAbi);
+    const { account } = useWallet();
+
+    const [assetQty, setAssetQty] = React.useState(0);
+
+    const [TokenBalance] = useContractCall({
+        abi: serviceInterface,
+        address: ConfigApp.ServiceContractAddress,
+        method: 'getAmountLoaned',
+        args: [account, ConfigApp.tokens_addresses[assetName.replace('$', '')]]
+    }) ?? [];
+
+    useEffect( () => {
+        if (TokenBalance) {
+            console.log(TokenBalance);
+            setAssetQty(parseFloat(utils.formatEther(TokenBalance)));
+        }
+    }, [TokenBalance]);
+
     return (
         <Card className="tek-border mb-3 mt-1">
             <Card.Header>
@@ -21,7 +45,7 @@ export const AssetInLoan: FC<AssetInLoanProps> = ({ assetName, assetLogo }) => {
                         <h4 className="text-center">{assetName}</h4>
                     </Col>
                     <Col md={6}>
-                        <h4 className="text-end">1239.33</h4>
+                        <h4 className="text-end">{assetQty?.toFixed(3)}</h4>
                     </Col>
                 </Row>
             </Card.Header>

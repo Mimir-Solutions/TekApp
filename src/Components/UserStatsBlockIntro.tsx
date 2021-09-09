@@ -5,6 +5,7 @@ import USDTLogo from './../Assets/usdt_logo.png'
 import USDCLogo from './../Assets/usdc_logo.png'
 import ETHLogo from './../Assets/ethereum.png'
 import DAILogo from './../Assets/dai_logo.png'
+import NFYLogo from './../Assets/nfy_logo.png'
 import { AssetInLoan } from './AssetInLoan'
 import { WithdrawAssets } from './WithdrawAssets'
 
@@ -32,7 +33,7 @@ export const UserStatsBlockIntro: FC<UserStatsBlockIntroProps> = (props) => {
     return (
         <Card>
             <Card.Body>
-                <Row>
+                {/* <Row>
                     <Col md={6}>
                         <Card className="tek-border-light tek-border-header">
                             <Card.Header>
@@ -51,7 +52,7 @@ export const UserStatsBlockIntro: FC<UserStatsBlockIntroProps> = (props) => {
                         </Card>
                     </Col>
                 </Row>
-                <hr />
+                <hr /> */}
                 <Row>
                     <Col md={12}>
                         <Card className="tek-border-light mb-3">
@@ -63,10 +64,12 @@ export const UserStatsBlockIntro: FC<UserStatsBlockIntroProps> = (props) => {
                         </Card>
                     </Col>
                 </Row>
-                <AssetInLoan assetLogo={ETHLogo} assetName="$ETH" />
-                <AssetInLoan assetLogo={USDCLogo} assetName="$USDC" />
+                <AssetInLoan assetLogo={ETHLogo} assetName="$WETH" />
+                <AssetInLoan assetLogo={NFYLogo} assetName="$NFY" />
                 <AssetInLoan assetLogo={USDTLogo} assetName="$USDT" />
+                <AssetInLoan assetLogo={USDCLogo} assetName="$USDC" />
                 <AssetInLoan assetLogo={DAILogo} assetName="$DAI" />
+                
                 <hr />
                 <WithdrawAssets />
             </Card.Body>
