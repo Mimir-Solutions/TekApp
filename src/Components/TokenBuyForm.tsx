@@ -55,6 +55,7 @@ export const TokenBuyForm: FunctionComponent<{}> = (props) => {
                         }
                         }>
                             <option value="ETH">ETH</option>
+                            <option value="NFY">NFY</option>
                             <option value="USDT">USDT</option>
                             <option value="USDC">USDC</option>
                             <option value="DAI">DAI</option>
