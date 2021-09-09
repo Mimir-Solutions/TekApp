@@ -126,8 +126,8 @@ export const WalletProvider: FunctionComponent<WalletProviderProps> = (props) =>
                 formatUnits(BPP_Balance ?? 0)
             )
 
-            setUSDC(formatUnits(USDC_Balance ?? 0));
-            setUSDT(formatUnits(USDT_Balance ?? 0));
+            setUSDC(formatUnits(USDC_Balance ?? 0, 6));
+            setUSDT(formatUnits(USDT_Balance ?? 0, 6));
             setDAI(formatUnits(DAI_Balance ?? 0));
         }
     }, [etherBalance, setETH, setNFY, setBPP, setDEFO, account, NFY_Balance, DEFO_Balance, BPP_Balance, USDC_Balance, USDT_Balance, DAI_Balance]);
