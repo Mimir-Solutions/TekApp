@@ -3,6 +3,7 @@ import { Row, Col, Button } from 'react-bootstrap'
 import { SocialIcon } from 'react-social-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBookOpen, faNewspaper } from '@fortawesome/free-solid-svg-icons'
+import { ConfigApp } from './../config'
 
 
 interface FooterProps {
@@ -27,13 +28,13 @@ export const Footer: FC<FooterProps> = (props) => {
                 </Col>
                 <Col md={2}>
                     <b className="text-primary">
-                        &copy; Mimir Solutions 2021<br/>
+                        &copy; Mimir Solutions 2021<br />
                         <span className="text-muted">v0.1</span>
                     </b>
                 </Col>
                 <Col md={3}>
                     <div className="d-grid gap-2">
-                        <Button variant="outline-primary"  href="https://tek.finance/The_TEK_Protocol_Whitepaper.pdf" target="_blank">
+                        <Button variant="outline-primary" href="https://tek.finance/The_TEK_Protocol_Whitepaper.pdf" target="_blank">
                             <FontAwesomeIcon icon={faNewspaper} /> Whitepaper
                         </Button>
                     </div>
@@ -46,7 +47,8 @@ export const Footer: FC<FooterProps> = (props) => {
                     </div>
                 </Col>
             </Row>
-            
+            <b className="mt-2">Contract address is <a href={ConfigApp.ServiceContractAddress} target="_blank" rel="noreferrer">{ConfigApp.ServiceContractAddress}</a></b>
+
         </>
     )
 };
