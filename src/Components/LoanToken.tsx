@@ -28,6 +28,8 @@ export const LoanToken: FC<LoanTokenPropsInterface> = ({ amount, tokenName }) =>
     const { library } = useEthers();
     const decimals = tokenName === 'USDT' || tokenName === 'USDC' ? 6 : 18;
 
+    console.log(`${tokenName} - ${decimals}`)
+
     const { state: stateApproval, send: sendApproval } = useContractFunction(ERC20Contract, 'approve', { transactionName: "Approve" })
 
 
@@ -35,16 +37,17 @@ export const LoanToken: FC<LoanTokenPropsInterface> = ({ amount, tokenName }) =>
         { transactionName: "Lend liquidity", signer: library?.getSigner() }
     )
 
-    console.log(allowance ? utils.formatUnits(allowance, decimals) : null);
-
     useEffect(() => {
         if (stateService.status === 'Success' || stateService.status === 'Exception' || stateService.status === 'None') {
             setHaveActiveLendTx(false);
         } else if (stateService.status === 'Mining') {
             setHaveActiveLendTx(true)
         }
-        console.log("Lending result")
-        console.log(stateService)
+
+        if (stateService.status !== 'None') {
+            console.log("Lending result")
+            console.log(stateService)
+        }
     }, [stateService]);
 
     useEffect(() => {
@@ -53,8 +56,10 @@ export const LoanToken: FC<LoanTokenPropsInterface> = ({ amount, tokenName }) =>
         } else if (stateApproval.status === 'Mining') {
             setHaveActiveApprovalTx(true)
         }
-        console.log("Approval result")
-        console.log(stateApproval)
+        if (stateApproval.status !== 'None') {
+            console.log("Approval result")
+            console.log(stateApproval)
+        }
     }, [stateApproval])
 
     const lendLiquidity = () => {
@@ -80,6 +85,16 @@ export const LoanToken: FC<LoanTokenPropsInterface> = ({ amount, tokenName }) =>
                 <b>Invalid token</b>
             </div>
         </>)
+    }
+    
+    if (parseFloat(amount as string) < 0 || parseFloat(amount as string) === 0) {
+        return (
+            <div className="d-grid gap-2">
+                <Button size="lg" variant="primary" disabled={true}>
+                    Please enter amount
+                </Button>
+            </div>
+        )
     }
 
     if (allowance && amount && utils.formatUnits(allowance, decimals) < amount)
