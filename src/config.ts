@@ -29,6 +29,6 @@ export const ConfigApp = {
     TEKContractAddress: "0x36f0a5c1f6b51d50fb67526f3def4a3ee2670cd2",
     TEKAbi: "todo add ABI HERE",
     INFURAKEY: "0",
-    ServiceContractAddress: "0x745253f975644b664defc5b89366b437f4c45948",
+    ServiceContractAddress: "0xec6c55a4423dd088df40a5eed3cba85d7ce992c7",
     ServiceAbi: ServiceAbi
 }

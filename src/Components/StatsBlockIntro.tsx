@@ -27,14 +27,14 @@ export const StatsBlockIntro: FunctionComponent<{}> = (props) => {
     const [ETHLockedContract] = useContractCall({
         abi: serviceInterface,
         address: ConfigApp.ServiceContractAddress,
-        method: 'getTotalLoaned',
+        method: 'totalLoanedForToken',
         args: [ConfigApp.tokens_addresses.ETH]
     }) ?? [];
 
     const [NFYLockedContract] = useContractCall({
         abi: serviceInterface,
         address: ConfigApp.ServiceContractAddress,
-        method: 'getTotalLoaned',
+        method: 'totalLoanedForToken',
         args: [ConfigApp.tokens_addresses.NFY]
     }) ?? [];
 
@@ -43,7 +43,7 @@ export const StatsBlockIntro: FunctionComponent<{}> = (props) => {
     const [USDTLockedContract] = useContractCall({
         abi: serviceInterface,
         address: ConfigApp.ServiceContractAddress,
-        method: 'getTotalLoaned',
+        method: 'totalLoanedForToken',
         args: [ConfigApp.tokens_addresses.USDT]
     }) ?? [];
 
@@ -53,19 +53,20 @@ export const StatsBlockIntro: FunctionComponent<{}> = (props) => {
     const [USDCLockedContract] = useContractCall({
         abi: serviceInterface,
         address: ConfigApp.ServiceContractAddress,
-        method: 'getTotalLoaned',
+        method: 'totalLoanedForToken',
         args: [ConfigApp.tokens_addresses.USDC]
     }) ?? [];
 
     const [DAILockedContract] = useContractCall({
         abi: serviceInterface,
         address: ConfigApp.ServiceContractAddress,
-        method: 'getTotalLoaned',
+        method: 'totalLoanedForToken',
         args: [ConfigApp.tokens_addresses.DAI]
     }) ?? [];
 
 
     useEffect(() => {
+        console.log(ETHLockedContract);
         if (ETHLockedContract) {
             setLockedETH(parseFloat(utils.formatEther((ETHLockedContract))));
         }
