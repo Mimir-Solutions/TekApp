@@ -47,7 +47,7 @@ export const Footer: FC<FooterProps> = (props) => {
                     </div>
                 </Col>
             </Row>
-            <b className="mt-2">Contract address is <a href={ConfigApp.ServiceContractAddress} target="_blank" rel="noreferrer">{ConfigApp.ServiceContractAddress}</a></b>
+            <b className="mt-2">Contract address is <a href={"https://etherscan.io/address/" + ConfigApp.ServiceContractAddress} target="_blank" rel="noreferrer">{ConfigApp.ServiceContractAddress}</a></b>
 
         </>
     )
