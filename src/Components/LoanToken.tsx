@@ -26,6 +26,7 @@ export const LoanToken: FC<LoanTokenPropsInterface> = ({ amount, tokenName }) =>
     const [haveActiveApprovalTx, setHaveActiveApprovalTx] = React.useState<boolean>(false);
     const [haveActiveLendTx, setHaveActiveLendTx] = React.useState<boolean>(false);
     const { library } = useEthers();
+    const decimals = tokenName === 'USDT' || tokenName === 'USDC' ? 6 : 18;
 
     const { state: stateApproval, send: sendApproval } = useContractFunction(ERC20Contract, 'approve', { transactionName: "Approve" })
 
@@ -34,7 +35,7 @@ export const LoanToken: FC<LoanTokenPropsInterface> = ({ amount, tokenName }) =>
         { transactionName: "Lend liquidity", signer: library?.getSigner() }
     )
 
-    console.log(allowance ? utils.formatEther(allowance) : null);
+    console.log(allowance ? utils.formatUnits(allowance, decimals) : null);
 
     useEffect(() => {
         if (stateService.status === 'Success' || stateService.status === 'Exception' || stateService.status === 'None') {
@@ -61,7 +62,7 @@ export const LoanToken: FC<LoanTokenPropsInterface> = ({ amount, tokenName }) =>
 
         sendService(
             tokenAddress,
-            utils.parseUnits(amount as string, 18),
+            utils.parseUnits(amount as string, decimals),
         );
     }
 
@@ -69,7 +70,7 @@ export const LoanToken: FC<LoanTokenPropsInterface> = ({ amount, tokenName }) =>
         setHaveActiveApprovalTx(false);
         sendApproval(
             serviceContract,
-            utils.parseUnits(amount as string, 18)
+            utils.parseUnits(amount as string, decimals)
         );
     };
 
@@ -81,13 +82,13 @@ export const LoanToken: FC<LoanTokenPropsInterface> = ({ amount, tokenName }) =>
         </>)
     }
 
-    if (allowance && amount && utils.formatEther(allowance) < amount)
+    if (allowance && amount && utils.formatUnits(allowance, decimals) < amount)
         return (
             <>
                 <div className="d-grid gap-2">
                     <Button size="lg" variant="primary" onClick={() => approveLiquidity()} disabled={haveActiveApprovalTx}>
-                        {(amount && utils.formatEther(allowance) < amount && haveActiveApprovalTx) && <>Approving {tokenName}</>}
-                        {(amount && utils.formatEther(allowance) < amount && !haveActiveApprovalTx) && <>Approve {tokenName}</>}
+                        {(amount && utils.formatUnits(allowance, decimals) < amount && haveActiveApprovalTx) && <>Approving {tokenName}</>}
+                        {(amount && utils.formatUnits(allowance, decimals) < amount && !haveActiveApprovalTx) && <>Approve {tokenName}</>}
                     </Button>
                 </div>
             </>
