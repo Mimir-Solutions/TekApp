@@ -11,7 +11,7 @@ import { ChainId, DAppProvider, Config } from '@usedapp/core'
 
 
 const config: Config = {
-  readOnlyChainId: ChainId.Goerli,
+  readOnlyChainId: ChainId.Mainnet,
   readOnlyUrls: {
     [ChainId.Mainnet]: 'https://mainnet.infura.io/v3/60159d12d2154d9392e078fb59a18658',
     [ChainId.Goerli]: 'https://goerli.infura.io/v3/60159d12d2154d9392e078fb59a18658',
