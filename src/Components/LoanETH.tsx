@@ -41,6 +41,15 @@ export const LoanETH: FC<LoanETHPropsInterface> = ({ amount }) => {
         );
     }
 
+    if (parseFloat(amount as string) < 0 || parseFloat(amount as string) === 0) {
+        return (
+            <div className="d-grid gap-2">
+                <Button size="lg" variant="primary" disabled={true}>
+                    Please enter amount
+                </Button>
+            </div>
+        )
+    }
 
 
 
