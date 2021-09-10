@@ -20,7 +20,7 @@ export const AssetInLoan: FC<AssetInLoanProps> = ({ assetName, assetLogo }) => {
     const [TokenBalance] = useContractCall({
         abi: serviceInterface,
         address: ConfigApp.ServiceContractAddress,
-        method: 'getAmountLoaned',
+        method: 'amountLoanedForLoanedTokenForLender',
         args: [account, ConfigApp.tokens_addresses[assetName.replace('$', '')]]
     }) ?? [];
 
