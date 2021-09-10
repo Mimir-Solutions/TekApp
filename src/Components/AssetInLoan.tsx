@@ -24,11 +24,22 @@ export const AssetInLoan: FC<AssetInLoanProps> = ({ assetName, assetLogo }) => {
         args: [account, ConfigApp.tokens_addresses[assetName.replace('$', '')]]
     }) ?? [];
 
-    useEffect( () => {
-        if (TokenBalance) {
-            setAssetQty(parseFloat(utils.formatEther(TokenBalance)));
+    useEffect(() => {
+        let decimals = 18;
+
+        if ('$USDT' === assetName) {
+            decimals = 6;
         }
-    }, [TokenBalance]);
+
+        if ('$USDC' === assetName) {
+            decimals = 6;
+        }
+
+
+        if (TokenBalance) {
+            setAssetQty(parseFloat(utils.formatUnits(TokenBalance, decimals)));
+        }
+    }, [TokenBalance, assetName]);
 
     return (
         <Card className="tek-border mb-3 mt-1">
