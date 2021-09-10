@@ -66,7 +66,6 @@ export const StatsBlockIntro: FunctionComponent<{}> = (props) => {
 
 
     useEffect(() => {
-        console.log(ETHLockedContract);
         if (ETHLockedContract) {
             setLockedETH(parseFloat(utils.formatEther((ETHLockedContract))));
         }
