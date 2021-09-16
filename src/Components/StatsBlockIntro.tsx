@@ -191,7 +191,7 @@ export const StatsBlockIntro: FunctionComponent<{}> = (props) => {
                             </tr>
                             <tr className="tek-stats-block-header">
                                 <td colSpan={2}>
-                                    <h4 className="text-center">Week 2</h4>
+                                    <h4 className="text-center">Recovered Tokens</h4>
                                 </td>
                             </tr>
                             <tr>
