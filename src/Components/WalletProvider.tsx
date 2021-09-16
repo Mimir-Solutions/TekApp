@@ -129,7 +129,7 @@ export const WalletProvider: FunctionComponent<WalletProviderProps> = (props) =>
             )
 
             setDEFO(
-                formatUnits(BPP_Balance ?? 0)
+                formatUnits(DEFO_Balance ?? 0)
             )
 
             setUSDC(formatUnits(USDC_Balance ?? 0, 6));
