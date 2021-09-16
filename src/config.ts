@@ -12,6 +12,7 @@ const tokens_addresses: KvObjectStorage = {
     USDT: "0xdac17f958d2ee523a2206206994597c13d831ec7",
     DAI: "0x6b175474e89094c44da98b954eedeac495271d0f",
     USDC: "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+    IYF: "0x5D762F76b9E91F71cc4F94391BDFe6333dB8519c"
 };
 
 export const ConfigApp = {
@@ -26,9 +27,6 @@ export const ConfigApp = {
         USDC: "usd-coin"
 
     },
-    TEKContractAddress: "0x36f0a5c1f6b51d50fb67526f3def4a3ee2670cd2",
-    TEKAbi: "todo add ABI HERE",
-    INFURAKEY: "0",
     ServiceContractAddress: "0xec6c55a4423dd088df40a5eed3cba85d7ce992c7",
     ServiceAbi: ServiceAbi
 }

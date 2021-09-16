@@ -6,6 +6,9 @@ import USDCLogo from './../Assets/usdc_logo.png'
 import ETHLogo from './../Assets/ethereum.png'
 import DAILogo from './../Assets/dai_logo.png'
 import NFYLogo from './../Assets/nfy_logo.png'
+import BPPLogo from './../Assets/bitpower_logo.png'
+import DEFOLogo from './../Assets/defhold_logo.png'
+import IYFLogo from './../Assets/iyf_logo.png'
 import { AssetInLoan } from './AssetInLoan'
 
 interface UserStatsBlockIntroProps {
@@ -68,6 +71,9 @@ export const UserStatsBlockIntro: FC<UserStatsBlockIntroProps> = (props) => {
                 <AssetInLoan assetLogo={USDTLogo} assetName="$USDT" />
                 <AssetInLoan assetLogo={USDCLogo} assetName="$USDC" />
                 <AssetInLoan assetLogo={DAILogo} assetName="$DAI" />
+                <AssetInLoan assetLogo={BPPLogo} assetName="$BPP" />
+                <AssetInLoan assetLogo={DEFOLogo} assetName="$DEFO" />
+                <AssetInLoan assetLogo={IYFLogo} assetName="$IYF" />
                 
                 <hr />
 

@@ -3,14 +3,11 @@ import { Row, Col, Button } from 'react-bootstrap'
 import { SocialIcon } from 'react-social-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBookOpen, faNewspaper } from '@fortawesome/free-solid-svg-icons'
-import { ConfigApp } from './../config'
 
 
 interface FooterProps {
 
 }
-
-
 
 export const Footer: FC<FooterProps> = (props) => {
     return (
@@ -29,7 +26,7 @@ export const Footer: FC<FooterProps> = (props) => {
                 <Col md={2}>
                     <b className="text-primary">
                         &copy; Mimir Solutions 2021<br />
-                        <span className="text-muted">v0.1</span>
+                        <span className="text-muted">v0.2</span>
                     </b>
                 </Col>
                 <Col md={3}>
@@ -47,8 +44,6 @@ export const Footer: FC<FooterProps> = (props) => {
                     </div>
                 </Col>
             </Row>
-            <b className="mt-2">Contract address is <a href={"https://etherscan.io/address/" + ConfigApp.ServiceContractAddress} target="_blank" rel="noreferrer">{ConfigApp.ServiceContractAddress}</a></b>
-
         </>
     )
 };

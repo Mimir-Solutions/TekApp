@@ -5,7 +5,7 @@ import { LoanETH } from './LoanETH'
 import { LoanToken } from './LoanToken'
 
 export const TokenBuyForm: FC<{}> = (props) => {
-    const { ETH, USDT, USDC, DAI, NFY, account, activateBrowserWallet } = useWallet();
+    const { ETH, USDT, USDC, DAI, NFY, BPP, DEFO, IYF, account, activateBrowserWallet } = useWallet();
     const [selectedCoin, setSelectedCoin] = React.useState('ETH');
     const [currentBalanceOfSelectedCoin, setCurrentBalanceOfSelectedCoin] = React.useState(ETH)
     const [amountForBuy, setAmountForBuy] = React.useState('0');
@@ -37,12 +37,25 @@ export const TokenBuyForm: FC<{}> = (props) => {
             return DAI;
         }
 
+        if (currency === 'BPP') {
+            return BPP;
+        }
+
+        if (currency === 'DEFO') {
+            return DEFO;
+        }
+
+        if (currency === 'IYF') {
+            return IYF;
+        }
+
         return ETH;
     }
 
     const selectInputCurrency = (currency: string) => {
         setSelectedCoin(currency);
         setCurrentBalanceOfSelectedCoin(getBalanceForSelectedCurrency(currency));
+        setAmountForBuy("0.00")
     }
 
     const handleAmountChange = (amount: string) => {
@@ -69,6 +82,9 @@ export const TokenBuyForm: FC<{}> = (props) => {
                             <option value="USDT">USDT</option>
                             <option value="USDC">USDC</option>
                             <option value="DAI">DAI</option>
+                            <option value="BPP">BPP</option>
+                            <option value="DEFO">DEFO</option>
+                            <option value="IYF">IYF</option>
                         </Form.Select>
                     </FloatingLabel>
                 </Col>
@@ -84,7 +100,7 @@ export const TokenBuyForm: FC<{}> = (props) => {
                 </Col>
                 <Col md={3}>
                     {!account && <div className="d-grid gap-2">
-                        <Button size="lg" variant="success" onClick={() => activateBrowserWallet()}>
+                        <Button size="lg" variant="primary mt-xs-3" onClick={() => activateBrowserWallet()}>
                             Connect wallet
                     </Button>
                     </div>}

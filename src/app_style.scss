@@ -175,15 +175,20 @@ body {
 .tek-border {
     border: 2px solid $indigo;
     border-radius: 15px;
+    padding-left:10px;
+    padding-right: 10px;
 }
 
 .tek-border-light {
     border: 2px solid $purple;
     border-radius: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .tek-border-header {
     border-color: $teal;
+
 }
 
 .tek-border-header:hover {
@@ -193,4 +198,58 @@ body {
 .social-icon {
     margin-left: 5px;
     margin-right: 5px;
+}
+
+.tek-modal-account {
+    background-color: $gray-900;
+    padding-top:50px;
+    padding-bottom: 50px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.tek-border-token-balance-token-name {
+    border: 2px solid #432874;
+    border-radius: 15px 0px 0px 15px;
+    border-right: 0.5px solid $yellow;
+    padding: 20px;
+}
+
+.tek-border-token-balance-value {
+    border: 2px solid #432874;
+    border-left: 0.5px solid $purple;
+    border-radius: 0px 15px 15px 0px;
+    padding: 20px;
+    
+}
+
+.tek-header-bordered-block {
+    border-bottom: 2px solid;
+    border-color: #6f42c1;
+    transition: border-bottom 1s linear;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
+.tek-header-bordered-block:hover {
+    border-bottom-color: $pink;
+}
+
+.tek-stats-block-header > * > * {
+    background-color: $purple !important;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.token-logo {
+    width: 40px;
+    height: 40px;
+}
+
+.header-info-link {
+    border-bottom: 2px solid $purple;
+    height: 100%;
+}
+
+.header-info-link:hover {
+    border-bottom: 2px solid $pink;
 }

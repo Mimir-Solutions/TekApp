@@ -45,16 +45,16 @@ export const AssetInLoan: FC<AssetInLoanProps> = ({ assetName, assetLogo }) => {
         <Card className="tek-border mb-3 mt-1">
             <Card.Header>
                 <Row>
-                    <Col md={2}>
+                    <Col md={2} xs={2}>
                         <img src={assetLogo as string} alt={assetName} className="img-responsive" style={{
                             width: '40px',
                             height: '40px'
                         }} />
                     </Col>
-                    <Col md={4}>
+                    <Col md={4} xs={4}>
                         <h4 className="text-center">{assetName}</h4>
                     </Col>
-                    <Col md={6}>
+                    <Col md={6} xs={6}>
                         <h4 className="text-end">{assetQty?.toFixed(3)}</h4>
                     </Col>
                 </Row>
