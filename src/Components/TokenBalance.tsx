@@ -17,7 +17,8 @@ export const TokenBalance: FunctionComponent<TokenBalanceProps> = ({ tokenKey })
         DEFO,
         DAI,
         USDT,
-        USDC
+        USDC,
+        IYF
     } = useWallet();
 
 
@@ -30,6 +31,7 @@ export const TokenBalance: FunctionComponent<TokenBalanceProps> = ({ tokenKey })
             {tokenKey === 'DAI' && formater(DAI)}
             {tokenKey === 'USDT' && formater(USDT)}
             {tokenKey === 'USDC' && formater(USDC)}
+            {tokenKey === 'IYF' && formater(IYF)}
         </>
     )
 }

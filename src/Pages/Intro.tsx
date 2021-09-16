@@ -12,7 +12,12 @@ interface IntroPageProps {
 export const Intro: FC<IntroPageProps> = (props) => {
     return (
         <>
-            <Row className="mt-3 mb-3 disabled">
+            <Row className="mt-3 mb-3">
+                <Col md={12}>
+                    <TokenBuyForm />
+                </Col>
+            </Row>
+            <Row className=" mb-3">
                 <Col md={6}>
                     <StatsBlockIntro />
                 </Col>
@@ -20,11 +25,7 @@ export const Intro: FC<IntroPageProps> = (props) => {
                     <UserStatsBlockIntro />
                 </Col>
             </Row>
-            <Row>
-                <Col md={12}>
-                    <TokenBuyForm />
-                </Col>
-            </Row>
+            
         </>
     )
 }

@@ -29,6 +29,8 @@ type WalletContextState = {
     DAI: string | number | undefined,
     USDT: string | number | undefined,
     USDC: string | number | undefined,
+    IYF: string | number | undefined,
+    setIYF: Function,
     setNFY: Function,
     setDAI: Function,
     setUSDT: Function,
@@ -56,6 +58,8 @@ const WalletContext = React.createContext<WalletContextState>({
     DAI: '0.00',
     USDT: '0.00',
     USDC: '0.00',
+    IYF: '0.00',
+    setIYF: () => { },
     setDAI: () => { },
     setUSDT: () => { },
     setUSDC: () => { },
@@ -89,6 +93,7 @@ export const WalletProvider: FunctionComponent<WalletProviderProps> = (props) =>
     const [USDC, setUSDC] = React.useState<string | number | undefined>(0);
     const [DAI, setDAI] = React.useState<string | number | undefined>(0);
     const [ETHPrice, setETHPrice] = React.useState<string | number | undefined>(0);
+    const [IYF, setIYF] = React.useState<string | number | undefined>(0);
 
     let etherBalance = useEtherBalance(account)
 
@@ -98,6 +103,7 @@ export const WalletProvider: FunctionComponent<WalletProviderProps> = (props) =>
     const USDT_Balance = useTokenBalance(ConfigApp.tokens_addresses.USDT, account)
     const USDC_Balance = useTokenBalance(ConfigApp.tokens_addresses.USDC, account)
     const DAI_Balance = useTokenBalance(ConfigApp.tokens_addresses.DAI, account)
+    const IYF_Balance = useTokenBalance(ConfigApp.tokens_addresses.IYF, account)
 
 
     const etherPrice = useCoingeckoPrice('ethereum', 'usd')
@@ -129,8 +135,9 @@ export const WalletProvider: FunctionComponent<WalletProviderProps> = (props) =>
             setUSDC(formatUnits(USDC_Balance ?? 0, 6));
             setUSDT(formatUnits(USDT_Balance ?? 0, 6));
             setDAI(formatUnits(DAI_Balance ?? 0));
+            setIYF(formatUnits(IYF_Balance ?? 0))
         }
-    }, [etherBalance, setETH, setNFY, setBPP, setDEFO, account, NFY_Balance, DEFO_Balance, BPP_Balance, USDC_Balance, USDT_Balance, DAI_Balance]);
+    }, [etherBalance, setETH, setNFY, setBPP, setDEFO, account, NFY_Balance, DEFO_Balance, BPP_Balance, USDC_Balance, USDT_Balance, DAI_Balance, IYF_Balance]);
 
     return (
 
@@ -143,6 +150,7 @@ export const WalletProvider: FunctionComponent<WalletProviderProps> = (props) =>
             DAI, setDAI,
             USDC, setUSDC,
             USDT, setUSDT,
+            IYF, setIYF,
             ETHPrice, setETHPrice,
             serviceContract,
             serviceInterface

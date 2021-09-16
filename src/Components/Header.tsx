@@ -3,6 +3,7 @@ import { Navbar, Container, Nav } from 'react-bootstrap'
 import Logo from './../Assets/logo.png'
 import { useWallet } from './WalletProvider'
 import { ConnectedAccountNavs } from './ConnectedAccountNavs'
+import { ConfigApp } from './../config'
 import { NotificationsContainer } from './NotificationsContainer'
 
 
@@ -25,14 +26,17 @@ export const Header: FunctionComponent<{}> = (props) => {
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse className="justify-content-end" id="navbarScroll">
                         <Nav className="mr-auto" navbarScroll>
-                            <Nav.Link>
+                            <Nav.Link className="tek-header-bordered-block mr-3">
                                 1 ETH = ${ETHPrice}
                             </Nav.Link>
+                            <Nav.Link href={"https://etherscan.io/address/" + ConfigApp.ServiceContractAddress} target="_blank" rel="noreferrer" className="tek-header-bordered-block mr-3">
+                                Contract
+                            </Nav.Link>
                             {(!account) &&
-                                <Nav.Link href="#" className="tek-border tek-border-header" onClick={() => {
+                                <Nav.Link href="#" className="tek-header-bordered-block" onClick={() => {
                                     activateBrowserWallet()
                                 }}>
-                                    Connect wallet
+                                    <span className="text-center">Connect wallet</span>
                                 </Nav.Link>
                             }
 
