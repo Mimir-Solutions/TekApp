@@ -21,7 +21,7 @@ export const Header: FunctionComponent<{}> = (props) => {
                             className="d-inline-block align-top"
                             alt="$TEK"
                         />
-                        GET $TEK <span className="text-danger text-small">week 2</span>
+                        GET $TEK <span className="text-danger text-small">week 3</span>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse className="justify-content-end" id="navbarScroll">
