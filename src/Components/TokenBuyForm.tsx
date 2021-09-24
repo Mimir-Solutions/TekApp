@@ -37,17 +37,17 @@ export const TokenBuyForm: FC<{}> = (props) => {
             return DAI;
         }
 
-        if (currency === 'BPP') {
-            return BPP;
-        }
+        //if (currency === 'BPP') {
+        //    return BPP;
+        //}
 
-        if (currency === 'DEFO') {
-            return DEFO;
-        }
+        //if (currency === 'DEFO') {
+        //    return DEFO;
+        //}
 
-        if (currency === 'IYF') {
-            return IYF;
-        }
+        //if (currency === 'IYF') {
+        //    return IYF;
+        //}
 
         return ETH;
     }
