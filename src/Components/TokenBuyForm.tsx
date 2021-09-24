@@ -82,9 +82,6 @@ export const TokenBuyForm: FC<{}> = (props) => {
                             <option value="USDT">USDT</option>
                             <option value="USDC">USDC</option>
                             <option value="DAI">DAI</option>
-                            <option value="BPP">BPP</option>
-                            <option value="DEFO">DEFO</option>
-                            <option value="IYF">IYF</option>
                         </Form.Select>
                     </FloatingLabel>
                 </Col>
