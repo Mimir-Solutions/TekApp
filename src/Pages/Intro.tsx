@@ -17,8 +17,8 @@ export const Intro: FC<IntroPageProps> = (props) => {
                     <Card>
                         <Card.Body>
                             <p className="text-center">
-                                <b>THE PRESALE IS OFFICIALLY CLOSED</b>. $TEK WILL BE LIVE ON 🍣SUSHI SWAP FRIDAY AT <b>11:59PM PST</b>. <br/>
-                                Halsey Will be doing a <b>livestream</b> AMA Saturday at 10:00pm EST
+                                <b>The Presale is officially closed.</b>.<br/>
+                                <b>$TEK</b> will be <b>live</b> soon. Stay tuned and join our Telegram - Discord!
                             </p>
                         </Card.Body>
                     </Card>
